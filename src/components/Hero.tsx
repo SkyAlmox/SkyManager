@@ -1,5 +1,4 @@
   import React from 'react';
-  import { PRIMARY_COLOR, ACCENT_COLOR } from '../constants';
 
   const Hero: React.FC = () => {
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -28,8 +27,8 @@
         {/* Background Image - Serene Nature */}
         <div className="absolute inset-0 w-full h-full">
           <img
-              src="hero.png"
-              alt=""
+              src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2000"
+              alt="Serene misty landscape"
               className="w-full h-full object-cover grayscale contrast-[0.7] brightness-[0.95] animate-[pulse_15s_ease-in-out_infinite_alternate]"
           />
           {/* Warmer Brown Overlay for Richness */}
@@ -45,7 +44,7 @@
               Olá
             </span>
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-normal text-white tracking-tight mb-8 drop-shadow-sm">
-              <span className="led-text">Somos a</span> <span className="italic text-[#F5F2EB] led-text">SkyMídia</span>
+              Somos a <span className="italic text-[#F5F2EB]">SkyMídia</span>
             </h1>
             <p className="max-w-lg mx-0 md:mx-auto text-lg md:text-xl text-white/90 font-light leading-relaxed mb-12 text-shadow-sm">
               Transformamos matérias-primas comuns em projetos de Comunicação Visual, de modo que cada cliente obtenha uma solução sob medida para cada uma das suas necessidades.<br/><br/>
@@ -68,27 +67,6 @@
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>
-
-        {/* LED Glow Animation */}
-        <style jsx>{`
-          @keyframes ledGlow {
-            0% {
-              text-shadow: 0 0 0px ${ACCENT_COLOR};
-            }
-            50% {
-              text-shadow: 0 0 12px ${ACCENT_COLOR}, 0 0 24px ${ACCENT_COLOR};
-            }
-            100% {
-              text-shadow: 0 0 0px ${ACCENT_COLOR};
-            }
-          }
-
-          .led-text {
-            color: #fff;
-            animation: ledGlow 1520s ease-in-out infinite;
-          }
-        `}</style>
-
       </section>
     );
   };
