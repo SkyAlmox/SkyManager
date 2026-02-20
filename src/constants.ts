@@ -175,5 +175,5 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
 export const BRAND_NAME = 'SkyMídia';
 // export const PRIMARY_COLOR = 'stone-900';
 // export const ACCENT_COLOR = 'stone-500';
-export const PRIMARY_COLOR = '#727377';   // fundo cinza desejado
+export const PRIMARY_COLOR = '#727377';   // fundo cinza
 export const ACCENT_COLOR = '#15F0DB';    // cor de destaque (hover)
