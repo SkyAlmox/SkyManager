@@ -6,16 +6,22 @@
 import React from 'react';
 
 export interface Product {
-  id: string;
+  id: number; // agora é número
   name: string;
-  tagline: string;
+  tagline?: string; // pode ser opcional se não usar
   description: string;
   longDescription?: string;
   price: number;
-  category: 'Audio' | 'Wearable' | 'Mobile' | 'Home';
+  category:
+    | "Carregadores de Celular"
+    | "Comunicação Visual"
+    | "Estruturas para Mídia OOH"
+    | "Marcenaria"
+    | "Projetos Especiais de Arquitetura"
+    | "Totens Digitais e Interativos"; // novas categorias
   imageUrl: string;
   gallery?: string[];
-  features: string[];
+  features?: string[];
 }
 
 export interface JournalArticle {
@@ -24,7 +30,7 @@ export interface JournalArticle {
   date: string;
   excerpt: string;
   image: string;
-  content: React.ReactNode; // Allowing JSX for rich formatting/poems
+  content: React.ReactNode;
 }
 
 export interface ChatMessage {
@@ -40,8 +46,8 @@ export enum LoadingState {
   SUCCESS = 'SUCCESS'
 }
 
-export type ViewState = 
+export type ViewState =
   | { type: 'home' }
-  | { type: 'product', product: Product }
-  | { type: 'journal', article: JournalArticle }
+  | { type: 'product'; product: Product }
+  | { type: 'journal'; article: JournalArticle }
   | { type: 'checkout' };
