@@ -5,3 +5,5 @@ npm install lucide-react
 #15F0DB
 #727377
 #333333
+
+#F5F2EB
