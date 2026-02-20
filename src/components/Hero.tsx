@@ -27,9 +27,9 @@
         {/* Background Image - Serene Nature */}
         <div className="absolute inset-0 w-full h-full">
           <img
-              src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2000"
-              alt="Serene misty landscape"
-              className="w-full h-full object-cover grayscale contrast-[0.7] brightness-[0.95] animate-[pulse_15s_ease-in-out_infinite_alternate]"
+            src="/hero2.png?auto=format&fit=crop&q=80&w=2000"
+            alt="Serene misty landscape"
+            className="w-full h-full object-cover grayscale contrast-[0.7] brightness-[0.85] opacity-50"
           />
           {/* Warmer Brown Overlay for Richness */}
           <div className="absolute inset-0 bg-[#433E38]/40 mix-blend-multiply"></div>
