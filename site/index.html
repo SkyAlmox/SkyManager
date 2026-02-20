@@ -1,59 +1,64 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKYMÍDIA - Projetos de comunicação visual</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aura - Organic Technology</title>
+    <meta name="description" content="Aura - Premium warm minimalist electronics" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+      
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px; /* Offset for fixed navbar */
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #F5F2EB; /* Warm cream background */
+        color: #2C2A26; /* Warm dark charcoal */
+      }
+      
+      h1, h2, h3, h4, .font-serif {
+        font-family: 'Playfair Display', serif;
+      }
+
+      /* Hide scrollbar for clean aesthetic in horizontal scrolls if any */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      @keyframes fade-in-up {
+        0% { opacity: 0; transform: translateY(30px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+
+      .animate-fade-in-up {
+        animation: fade-in-up 1s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+      }
+      
+      .animate-delay-200 { animation-delay: 0.2s; }
+      .animate-delay-400 { animation-delay: 0.4s; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.29.0",
+    "react/": "https://esm.sh/react@^19.2.0/",
+    "react": "https://esm.sh/react@^19.2.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
 </head>
-<body class="home-page">
-    <header class="site-header">
-        <div class="header-container">
-            <div class="logo">
-                <a href="/"><img src="https://skymidiabh.com.br/wp-content/uploads/2023/05/logo-branca.png" alt="SKYMÍDIA"></a>
-            </div>
-            <nav class="main-nav" id="mainNav">
-                <ul class="menu">
-                    <li class="menu-item active"><a href="#">home</a></li>
-                    <li class="menu-item"><a href="#">identidade visual</a></li>
-                    <li class="menu-item has-submenu">
-                        <div class="menu-link-wrapper">
-                            <a href="#">produtos</a>
-                            <button class="submenu-trigger" id="submenuBtn"><i class="fas fa-caret-down"></i></button>
-                        </div>
-                        <ul class="sub-menu" id="subMenu">
-                            <li><a href="#">Comunicação visual</a></li>
-                            <li><a href="#">Projetos Especiais de Arquitetura</a></li>
-                            <li><a href="#">Carregadores de celular</a></li>
-                            <li><a href="#">Totens digitais e interativos</a></li>
-                            <li><a href="#">Painéis para Mídia OOH</a></li>
-                            <li><a href="#">Marcenaria</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item"><a href="#">buscar</a></li>
-                    <li class="menu-item"><a href="#">vamos conversar?</a></li>
-                </ul>
-            </nav>
-            <div class="header-right">
-                <div class="header-social">
-                    <a href="https://www.instagram.com/skymidiabh/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                </div>
-                <button class="menu-toggle-btn" id="menuToggle">
-                    <i class="fas fa-bars icon-open"></i>
-                    <i class="fas fa-times icon-close"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-    <div class="menu-overlay" id="overlay"></div>
-    <main class="content-area">
-        
-    </main>
-    <script src="script.js"></script>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
 </body>
 </html>
