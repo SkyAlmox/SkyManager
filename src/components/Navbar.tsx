@@ -62,17 +62,17 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) =>
 
           {/* Links - Desktop */}
           <div className={`hidden md:flex items-center gap-12 text-sm font-medium tracking-widest uppercase transition-colors duration-500 ${textColorClass}`}>
-            <a href="#products" onClick={(e) => handleLinkClick(e, 'products')}
+            <a href="#identidadeVisual" onClick={(e) => handleLinkClick(e, 'identidadeVisual')}
                className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-              Shop
+              Identidade Visual
             </a>
-            <a href="#about" onClick={(e) => handleLinkClick(e, 'about')}
+            <a href="#produtos" onClick={(e) => handleLinkClick(e, 'produtos')}
                className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-              About
+              Produtos
             </a>
-            <a href="#journal" onClick={(e) => handleLinkClick(e, 'journal')}
+                <a href="#vamosConversar" onClick={(e) => handleLinkClick(e, 'vamosConversar')}
                className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-              Journal
+              Vamos Conversar
             </a>
           </div>
 
@@ -125,17 +125,17 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) =>
         mobileMenuOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-10 pointer-events-none'
       }`}>
         <div className="flex flex-col items-center space-y-8 text-xl font-serif font-medium text-[#F5F2EB]">
-          <a href="#products" onClick={(e) => handleLinkClick(e, 'products')}
+          <a href="#identidadeVisual" onClick={(e) => handleLinkClick(e, 'identidadeVisual')}
              className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-            Shop
+            Identidade Visual
           </a>
-          <a href="#about" onClick={(e) => handleLinkClick(e, 'about')}
+          <a href="#produtos" onClick={(e) => handleLinkClick(e, 'produtos')}
              className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-            About
+            Produtos
           </a>
-          <a href="#journal" onClick={(e) => handleLinkClick(e, 'journal')}
+          <a href="#vamosConversar" onClick={(e) => handleLinkClick(e, 'vamosConversar')}
              className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-            Journal
+            Vamos Conversar
           </a>
 
           <div className="flex items-center gap-8 pt-8">
