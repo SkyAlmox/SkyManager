@@ -11,6 +11,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [submenuOpen, setSubmenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,12 +24,6 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) =>
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     setMobileMenuOpen(false);
     onNavClick(e, targetId);
-  };
-
-  const handleCartClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setMobileMenuOpen(false);
-    onOpenCart();
   };
 
   const textColorClass = (scrolled || mobileMenuOpen) ? 'text-[#2C2A26]' : 'text-[#F5F2EB]';
@@ -62,17 +57,42 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) =>
 
           {/* Links - Desktop */}
           <div className={`hidden md:flex items-center gap-12 text-sm font-medium tracking-widest uppercase transition-colors duration-500 ${textColorClass}`}>
-            <a href="#identidadeVisual" onClick={(e) => handleLinkClick(e, 'identidadeVisual')}
+
+            {/* Produtos com submenu */}
+            <div className="relative group">
+              <a
+                href="#products"
+                onClick={(e) => handleLinkClick(e, 'products')}
+                className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}
+              >
+                Produtos
+              </a>
+              <div className="absolute left-0 mt-2 w-72 bg-[${PRIMARY_COLOR}]/90 backdrop-blur-md rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50">
+                {[
+                  "Carregadores de Celular",
+                  "Comunicação Visual",
+                  "Estruturas para Mídia OOH",
+                  "Projetos Especiais de Arquitetura",
+                  "Totens Digitais e Interativos"
+                ].map((item) => (
+                  <a
+                    key={item}
+                    href="#"
+                    className="block px-4 py-2 text-sm text-[#F5F2EB] hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4 transition-colors"
+                  >
+                    {item}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <a href="#about" onClick={(e) => handleLinkClick(e, 'about')}
                className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-              Identidade Visual
+              About
             </a>
-            <a href="#produtos" onClick={(e) => handleLinkClick(e, 'produtos')}
+            <a href="#journal" onClick={(e) => handleLinkClick(e, 'journal')}
                className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-              Produtos
-            </a>
-                <a href="#vamosConversar" onClick={(e) => handleLinkClick(e, 'vamosConversar')}
-               className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-              Vamos Conversar
+              Journal
             </a>
           </div>
 
@@ -125,37 +145,18 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) =>
         mobileMenuOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-10 pointer-events-none'
       }`}>
         <div className="flex flex-col items-center space-y-8 text-xl font-serif font-medium text-[#F5F2EB]">
-          <a href="#identidadeVisual" onClick={(e) => handleLinkClick(e, 'identidadeVisual')}
-             className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-            Identidade Visual
-          </a>
-          <a href="#produtos" onClick={(e) => handleLinkClick(e, 'produtos')}
+          <a href="#products" onClick={(e) => handleLinkClick(e, 'products')}
              className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
             Produtos
           </a>
-          <a href="#vamosConversar" onClick={(e) => handleLinkClick(e, 'vamosConversar')}
+          <a href="#about" onClick={(e) => handleLinkClick(e, 'about')}
              className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-            Vamos Conversar
+            About
           </a>
-
-          <div className="flex items-center gap-8 pt-8">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}
-            >
-              <Instagram size={24} strokeWidth={1.5} />
-            </a>
-            <a
-              href="https://wa.me/yournumber"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}
-            >
-              <MessageCircle size={24} strokeWidth={1.5} />
-            </a>
-          </div>
+          <a href="#journal" onClick={(e) => handleLinkClick(e, 'journal')}
+             className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
+            Journal
+          </a>
         </div>
       </div>
     </>
