@@ -1,10 +1,5 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
-*/
-
-
 import React, { useState, useEffect } from 'react';
+import { Instagram, MessageCircle } from 'lucide-react';
 import { BRAND_NAME } from '../constants';
 
 interface NavbarProps {
@@ -41,15 +36,15 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) =>
 
   return (
     <>
-      <nav 
+      <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out ${
           scrolled || mobileMenuOpen ? 'bg-[#F5F2EB]/90 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-8'
         }`}
       >
         <div className="max-w-[1800px] mx-auto px-8 flex items-center justify-between">
           {/* Logo */}
-          <a 
-            href="#" 
+          <a
+            href="#"
             onClick={(e) => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -59,7 +54,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) =>
           >
             {BRAND_NAME}
           </a>
-          
+
           {/* Center Links - Desktop */}
           <div className={`hidden md:flex items-center gap-12 text-sm font-medium tracking-widest uppercase transition-colors duration-500 ${textColorClass}`}>
             <a href="#products" onClick={(e) => handleLinkClick(e, 'products')} className="hover:opacity-60 transition-opacity">Shop</a>
@@ -68,16 +63,28 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) =>
           </div>
 
           {/* Right Actions */}
-          <div className={`flex items-center gap-6 z-50 relative transition-colors duration-500 ${textColorClass}`}>
-            <button 
-              onClick={handleCartClick}
-              className="text-sm font-medium uppercase tracking-widest hover:opacity-60 transition-opacity hidden sm:block"
+          <div className={`flex items-center gap-5 z-50 relative transition-colors duration-500 ${textColorClass}`}>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-60 transition-opacity"
+              aria-label="Instagram"
             >
-              Cart ({cartCount})
-            </button>
-            
+              <Instagram size={20} strokeWidth={1.5} />
+            </a>
+            <a
+              href="https://wa.me/yournumber"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-60 transition-opacity"
+              aria-label="WhatsApp"
+            >
+              <MessageCircle size={20} strokeWidth={1.5} />
+            </a>
+
             {/* Mobile Menu Toggle */}
-            <button 
+            <button
               className={`block md:hidden focus:outline-none transition-colors duration-500 ${textColorClass}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
@@ -103,12 +110,25 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) =>
             <a href="#products" onClick={(e) => handleLinkClick(e, 'products')} className="hover:opacity-60 transition-opacity">Shop</a>
             <a href="#about" onClick={(e) => handleLinkClick(e, 'about')} className="hover:opacity-60 transition-opacity">About</a>
             <a href="#journal" onClick={(e) => handleLinkClick(e, 'journal')} className="hover:opacity-60 transition-opacity">Journal</a>
-            <button 
-                onClick={handleCartClick} 
-                className="hover:opacity-60 transition-opacity text-base uppercase tracking-widest font-sans mt-8"
-            >
-                Cart ({cartCount})
-            </button>
+
+            <div className="flex items-center gap-8 pt-8">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-60 transition-opacity"
+              >
+                <Instagram size={24} strokeWidth={1.5} />
+              </a>
+              <a
+                href="https://wa.me/yournumber"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-60 transition-opacity"
+              >
+                <MessageCircle size={24} strokeWidth={1.5} />
+              </a>
+            </div>
           </div>
       </div>
     </>
