@@ -57,28 +57,36 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) =>
 
           {/* Links - Desktop */}
           <div className={`hidden md:flex items-center gap-12 text-sm font-medium tracking-widest uppercase transition-colors duration-500 ${textColorClass}`}>
+            <a
+              href="#identidadeVisual"
+              onClick={(e) => handleLinkClick(e, 'identidadeVisual')}
+              className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}
+            >
+              Identidade Visual
+            </a>
 
             {/* Produtos com submenu */}
             <div className="relative group">
               <a
-                href="#products"
-                onClick={(e) => handleLinkClick(e, 'products')}
+                href="#produtos"
+                onClick={(e) => handleLinkClick(e, 'produtos')}
                 className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}
               >
                 Produtos
               </a>
-              <div className="absolute left-0 mt-2 w-72 bg-[${PRIMARY_COLOR}]/90 backdrop-blur-md rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50">
+              <div className={`absolute left-0 mt-2 w-72 bg-[${PRIMARY_COLOR}]/90 backdrop-blur-md rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50`}>
                 {[
                   "Carregadores de Celular",
                   "Comunicação Visual",
                   "Estruturas para Mídia OOH",
+                  "Marcenaria",
                   "Projetos Especiais de Arquitetura",
                   "Totens Digitais e Interativos"
                 ].map((item) => (
                   <a
                     key={item}
                     href="#"
-                    className="block px-4 py-2 text-sm text-[#F5F2EB] hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4 transition-colors"
+                    className={`block px-4 py-2 text-sm text-[#F5F2EB] transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}
                   >
                     {item}
                   </a>
@@ -86,20 +94,19 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) =>
               </div>
             </div>
 
-            <a href="#about" onClick={(e) => handleLinkClick(e, 'about')}
-               className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-              About
-            </a>
-            <a href="#journal" onClick={(e) => handleLinkClick(e, 'journal')}
-               className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-              Journal
+            <a
+              href="#vamosConversar"
+              onClick={(e) => handleLinkClick(e, 'vamosConversar')}
+              className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}
+            >
+              Vamos Conversar?
             </a>
           </div>
 
           {/* Ícones + Menu Mobile Toggle */}
           <div className={`flex items-center gap-5 z-50 relative transition-colors duration-500 ${textColorClass}`}>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/skymidiabh/"
               target="_blank"
               rel="noopener noreferrer"
               className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}
@@ -123,15 +130,11 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) =>
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
-                     className="w-6 h-6">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
-                     className="w-6 h-6">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
               )}
@@ -141,21 +144,65 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) =>
       </nav>
 
       {/* Menu Mobile Overlay */}
-      <div className={`fixed inset-0 bg-[${PRIMARY_COLOR}] z-40 flex flex-col justify-center items-center transition-all duration-500 ease-in-out ${
-        mobileMenuOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-10 pointer-events-none'
-      }`}>
+      <div
+        className={`fixed inset-0 bg-[${PRIMARY_COLOR}] z-40 flex flex-col justify-center items-center transition-all duration-500 ease-in-out ${
+          mobileMenuOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-10 pointer-events-none'
+        }`}
+      >
         <div className="flex flex-col items-center space-y-8 text-xl font-serif font-medium text-[#F5F2EB]">
-          <a href="#products" onClick={(e) => handleLinkClick(e, 'products')}
-             className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-            Produtos
+          <a
+            href="#identidadeVisual"
+            onClick={(e) => handleLinkClick(e, 'identidadeVisual')}
+            className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}
+          >
+            Identidade Visual
           </a>
-          <a href="#about" onClick={(e) => handleLinkClick(e, 'about')}
-             className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-            About
-          </a>
-          <a href="#journal" onClick={(e) => handleLinkClick(e, 'journal')}
-             className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}>
-            Journal
+
+          {/* Produtos com submenu em acordeão */}
+          <div className="flex flex-col items-center">
+            <button
+              onClick={() => setSubmenuOpen(!submenuOpen)}
+              className={`flex items-center gap-2 transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}
+            >
+              Produtos
+              {submenuOpen ? (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              )}
+            </button>
+
+            {submenuOpen && (
+              <div className="mt-4 flex flex-col items-center space-y-4">
+                {[
+                  "Carregadores de Celular",
+                  "Comunicação Visual",
+                  "Estruturas para Mídia OOH",
+                  "Projetos Especiais de Arquitetura",
+                  "Totens Digitais e Interativos"
+                ].map((item) => (
+                  <a
+                    key={item}
+                    href="#"
+                    className={`text-lg text-[#F5F2EB] transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}
+                  >
+                    {item}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <a
+            href="#vamosConversar"
+            onClick={(e) => handleLinkClick(e, 'vamosConversar')}
+            className={`transition-colors duration-300 hover:text-[${ACCENT_COLOR}] hover:underline underline-offset-4`}
+          >
+            Vamos Conversar
           </a>
         </div>
       </div>

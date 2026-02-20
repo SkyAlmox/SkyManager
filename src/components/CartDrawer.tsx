@@ -1,9 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
-*/
-
-
 import React from 'react';
 import { Product } from '../types';
 
@@ -21,7 +15,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, items, onRemov
   return (
     <>
       {/* Backdrop */}
-      <div 
+      <div
         className={`fixed inset-0 bg-[#2C2A26]/30 backdrop-blur-sm z-[60] transition-opacity duration-500 ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
@@ -29,7 +23,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, items, onRemov
       />
 
       {/* Drawer */}
-      <div 
+      <div
         className={`fixed inset-y-0 right-0 w-full md:w-[450px] bg-[#F5F2EB] z-[70] shadow-2xl transform transition-transform duration-500 ease-in-out border-l border-[#D6D1C7] flex flex-col ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
@@ -37,8 +31,8 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, items, onRemov
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-[#D6D1C7]">
           <h2 className="text-xl font-serif text-[#2C2A26]">Your Cart ({items.length})</h2>
-          <button 
-            onClick={onClose} 
+          <button
+            onClick={onClose}
             className="text-[#A8A29E] hover:text-[#2C2A26] transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -70,7 +64,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, items, onRemov
                     </div>
                     <p className="text-xs text-[#A8A29E] uppercase tracking-widest mt-1">{item.category}</p>
                   </div>
-                  <button 
+                  <button
                     onClick={() => onRemoveItem(idx)}
                     className="text-xs text-[#A8A29E] hover:text-[#2C2A26] self-start underline underline-offset-4 transition-colors"
                   >
@@ -89,7 +83,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, items, onRemov
             <span className="text-xl font-serif text-[#2C2A26]">${total}</span>
           </div>
           <p className="text-xs text-[#A8A29E] mb-6 text-center">Shipping and taxes calculated at checkout.</p>
-          <button 
+          <button
             onClick={onCheckout}
             disabled={items.length === 0}
             className="w-full py-4 bg-[#2C2A26] text-[#F5F2EB] uppercase tracking-widest text-sm font-medium hover:bg-[#433E38] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
