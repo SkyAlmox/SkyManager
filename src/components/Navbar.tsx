@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Instagram, MessageCircle } from 'lucide-react';
-import { BRAND_NAME, PRIMARY_COLOR, ACCENT_COLOR } from '../constants';
+import { PRIMARY_COLOR, ACCENT_COLOR } from '../constants';
 
 interface NavbarProps {
   onNavClick: (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => void;
