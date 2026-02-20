@@ -43,7 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) =>
       >
         <div className="max-w-[1800px] mx-auto px-8 flex items-center justify-between">
           {/* Logo */}
-          <a
+          {/* <a
             href="#"
             onClick={(e) => {
                 e.preventDefault();
@@ -53,6 +53,22 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, cartCount, onOpenCart }) =>
             className={`text-3xl font-serif font-medium tracking-tight z-50 relative transition-colors duration-500 ${textColorClass}`}
           >
             {BRAND_NAME}
+          </a> */}
+
+          <a
+            href="#"
+            onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                onNavClick(e, '');
+            }}
+            className="z-50 relative"
+          >
+            <img
+              src="/logo-branca.png"
+              alt="Logo da Empresa"
+              className="h-8 w-auto sm:h-6 md:h-8 lg:h-10 transition-all duration-500"
+            />
           </a>
 
           {/* Center Links - Desktop */}

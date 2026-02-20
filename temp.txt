@@ -1,3 +1,7 @@
 https://skymidiabh.com.br/wp-content/uploads/2023/05/logo-branca.png
 
 npm install lucide-react
+
+#15F0DB
+#727377
+#333333

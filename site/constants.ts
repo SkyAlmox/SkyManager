@@ -172,6 +172,6 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
     }
 ];
 
-export const BRAND_NAME = 'Aura';
-export const PRIMARY_COLOR = 'stone-900'; 
+export const BRAND_NAME = 'SkyMídia';
+export const PRIMARY_COLOR = 'stone-900';
 export const ACCENT_COLOR = 'stone-500';
