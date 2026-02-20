@@ -4,215 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SKYMÍDIA – Projetos de comunicação visual</title>
-    <!-- Font Awesome para os ícones sociais -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #000;
-            --text-color: #333;
-            --bg-light: #f9f9f9;
-        }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            line-height: 1.6;
-            color: var(--text-color);
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
 
-        /* Header */
-        header {
-            background: #000;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo img {
-            height: 50px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            margin: 0;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .social-icons a {
-            color: #fff;
-            margin-left: 15px;
-            font-size: 20px;
-        }
-
-        /* Hero Section */
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 80px 10%;
-            background: #fff;
-            align-items: center;
-        }
-
-        .hero-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .hero-text h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .hero-image {
-            flex: 1;
-            text-align: center;
-            min-width: 300px;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .services-list {
-            list-style: square;
-            padding-left: 20px;
-            font-weight: bold;
-        }
-
-        /* Carrossel Simples (Placeholder) */
-        .portfolio {
-            background: var(--bg-light);
-            padding: 60px 5%;
-            text-align: center;
-        }
-
-        .carousel-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 15px;
-            padding: 20px 0;
-        }
-
-        .carousel-item {
-            min-width: 300px;
-            height: 200px;
-            background: #ddd;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Footer */
-        footer {
-            background: #f1f1f1;
-            padding: 40px 10%;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .footer-info img {
-            width: 80px;
-        }
-
-        @media (max-width: 768px) {
-            header, .hero, footer {
-                flex-direction: column;
-                text-align: center;
-            }
-            nav ul {
-                flex-direction: column;
-                padding: 20px 0;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home-page">
 
-    <header>
-        <div class="logo">
-            <img src="https://skymidiabh.com.br/wp-content/uploads/2023/05/logo-branca.png" alt="Skymidia Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Identidade Visual</a></li>
-                <li><a href="#">Produtos</a></li>
-                <li><a href="#">Vamos Conversar?</a></li>
-            </ul>
-        </nav>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
+    <header class="site-header">
+        <div class="header-container">
+            
+            <div class="logo">
+                <a href="/">
+                    <img src="https://skymidiabh.com.br/wp-content/uploads/2023/05/logo-branca.png" alt="SKYMÍDIA">
+                </a>
+            </div>
+
+            <nav class="main-nav">
+                <ul class="menu">
+                    <li class="menu-item active"><a href="#">home</a></li>
+                    <li class="menu-item"><a href="#">identidade visual</a></li>
+                    <li class="menu-item"><a href="#">produtos</a></li>
+                    <li class="menu-item"><a href="#">buscar</a></li>
+                    <li class="menu-item"><a href="#">vamos conversar?</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-social">
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-text">
-                <h1>Olá.</h1>
-                <p>Somos a <strong>SKYMÍDIA</strong> e transformamos matérias-primas comuns em projetos de Comunicação Visual, de modo que cada cliente obtenha uma solução sob medida para cada uma das suas necessidades.</p>
-                <p>Hoje temos 5 divisões principais de produção:</p>
-                <ul class="services-list">
-                    <li>Estruturas para Mídia OOH</li>
-                    <li>Totens Digitais e Interativos</li>
-                    <li>Projetos Especiais de Arquitetura</li>
-                    <li>Carregadores de Celular</li>
-                    <li>Comunicação Visual</li>
-                </ul>
-            </div>
-            <div class="hero-image">
-                <!-- Imagem da chave lateral -->
-                <img src="https://skymidiabh.com.br/wp-content/uploads/2023/08/home-chave.png" alt="Destaque">
-            </div>
-        </section>
-
-        <section class="portfolio">
-            <h2>Nosso Portfólio</h2>
-            <div class="carousel-container">
-                <!-- Exemplo de como colocar as imagens do carrossel -->
-                <div class="carousel-item"><img src="https://skymidiabh.com.br/wp-content/uploads/2024/01/01-1.jpg" width="100%"></div>
-                <div class="carousel-item"><img src="https://skymidiabh.com.br/wp-content/uploads/2024/01/02-2.jpg" width="100%"></div>
-                <div class="carousel-item"><img src="https://skymidiabh.com.br/wp-content/uploads/2024/01/Elevador-Confins-1.jpg" width="100%"></div>
-            </div>
-        </section>
+    <main id="main-content" class="content-area">
+        <article class="page-article">
+            
+        </article>
     </main>
-
-    <footer>
-        <div class="footer-info">
-            <img src="https://skymidiabh.com.br/wp-content/uploads/2023/08/maps.png" alt="Mapa">
-            <p>
-                Rua Copérnico Pinto Coelho, 91 - Santo Antônio<br>
-                Belo Horizonte - MG - CEP 30.350-290<br>
-                (31) 3213.1919
-            </p>
-        </div>
-        <div class="copyright">
-            <p>© 2023 - Todos os direitos reservados</p>
-        </div>
-    </footer>
 
 </body>
 </html>
