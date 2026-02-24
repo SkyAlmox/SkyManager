@@ -104,7 +104,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
         date: "Soluções de Energia",
         excerpt: "Estações de carregamento inteligentes e seguras para ambientes públicos e privados.",
         image: "./carregadores_celular_00.jpg",
-        titleImageUrl: "icon_carregador_celular.png",
+        icon: "/carregadores_de_celular.png",
         content: (
             <>
                 <p className="mb-12 text-brand-dark/70 text-center max-w-2xl mx-auto text-xl">
@@ -134,10 +134,11 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
         date: "Identidade & Sinalização",
         excerpt: "Projetos completos de sinalização e branding que destacam sua marca no mercado.",
         image: "/comunicacao_visual_placaseletreiros_00.jpg",
+        icon: "/comunicacao_visual.png",
         content: (
             <>
                 <p className="mb-12 text-brand-dark/70 text-center max-w-2xl mx-auto text-xl">
-                    O que vamos te mostrar a seguir são exemplos da nossa capacidade técnica para transformar chapas de aço, alumínio, acrílico e outros diversos materiais, em peças de Identidade Visual capazes de representar com excelência a sua marca.
+                    Todas as formas, cores e reproduções da sua MARCA precisam seguir rigorosamente as características técnicas do seu Manual de Identidade Visual para que o resultado seja uma peça exclusiva e reconhecida por todos os públicos.
                     <br/><br/>
                     Para entregarmos projetos com resultado estético de alta qualidade contamos com pessoas muito bem treinadas e equipamentos de alta tecnologia e precisão alinhados à processos de produção cada dia mais eficientes para economizar tempo e matéria prima.
                 </p>
@@ -151,6 +152,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
         date: "Outdoor Media",
         excerpt: "Engenharia e fabricação de estruturas robustas para publicidade externa de alto impacto.",
         image: "/estruturas_ooh_00.jpg",
+        icon: "/paineis_para_midia_ooh.png",
         content: (
             <>
                 <p className="mb-12 text-brand-dark/70 text-center max-w-2xl mx-auto text-xl">
@@ -179,7 +181,8 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
         title: "Marcenaria",
         date: "Mobiliário Sob Medida",
         excerpt: "Mobiliário corporativo e comercial executado com precisão e acabamento superior.",
-        image: "https://images.unsplash.com/photo-1611486212335-132d6282433b?auto=format&fit=crop&q=80&w=1000",
+        image: "",
+        icon: "/marcenaria.png",
         content: (
             <>
                 <p className="mb-12 text-brand-dark/70 text-center max-w-2xl mx-auto text-xl">
@@ -203,6 +206,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
         date: "Arquitetura & Design",
         excerpt: "Execução de projetos arquitetônicos complexos e instalações artísticas sob medida.",
         image: "/projetos_especiais_arquitetura_00.jpg",
+        icon: "/projetos_para_arquitetura.png",
         content: (
             <>
                 <p className="mb-12 text-brand-dark/70 text-center max-w-2xl mx-auto text-xl">
@@ -228,6 +232,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
         date: "Tecnologia & Interação",
         excerpt: "Hardware de ponta para sinalização digital e autoatendimento com design sofisticado.",
         image: "/totens_00.jpg",
+        icon: "/totens_digitais_e_interativos.png",
         content: (
             <>
                 <p className="mb-12 text-brand-dark/70 text-center max-w-2xl mx-auto text-xl">

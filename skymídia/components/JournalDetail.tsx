@@ -9,11 +9,10 @@ interface JournalDetailProps {
 
 const JournalDetail: React.FC<JournalDetailProps> = ({ article, onBack, onNavigateToContact }) => {
   const isContactPage = article.id === 7;
-  const bgClass = isContactPage ? 'bg-[#E6E7E9]' : 'bg-brand-bg';
-  const cardBgClass = 'bg-[#727377]';
+  const bgClass = isContactPage ? 'bg-[#E6E7E9]' : 'bg-[#727377]';
+  const cardBgClass = isContactPage ? 'bg-[#E6E7E9]' : 'bg-[#727377]';
   const titleColorClass = 'text-[#039AAD]';
-  // const textColorClass = 'text-brand-dark';
-  const textColorClass = '!text-[#E6E7E9]';
+  const textColorClass = 'text-brand-dark';
   const proseClass = 'prose-slate';
 
   return (
@@ -43,24 +42,26 @@ const JournalDetail: React.FC<JournalDetailProps> = ({ article, onBack, onNaviga
                 <span className={`text-xs font-medium uppercase tracking-widest ${isContactPage ? 'text-brand-dark/60' : 'text-brand-text/60'}`}>{article.date}</span>
              </div>
 
-             {/* <h1 className={`text-4xl md:text-6xl font-serif ${titleColorClass} mb-12 leading-tight text-center`}>
-               {article.title}
-             </h1> */}
-             <h1 className={`text-4xl md:text-6xl font-serif ${titleColorClass} mb-12 leading-tight text-center`}>
-                {article.titleImageUrl ? (
-                  <img
-                    src={article.titleImageUrl}
-                    alt={article.title}
-                    className="h-64 md:h-80 object-contain mx-auto"
-                  />
-                ) : (
-                  article.title
-                )}
-              </h1>
+             <div className="flex justify-center mb-12">
+               {article.icon ? (
+                 <div className="h-24 md:h-32">
+                   <img
+                     src={article.icon}
+                     alt={article.title}
+                     className="h-full object-contain"
+                     referrerPolicy="no-referrer"
+                   />
+                 </div>
+               ) : (
+                 <h1 className={`text-4xl md:text-6xl font-serif ${titleColorClass} leading-tight text-center`}>
+                   {article.title}
+                 </h1>
+               )}
+             </div>
 
-             <div className="prose prose-lg mx-auto font-light leading-loose !text-[#E6E7E9]">
-                {article.content}
-              </div>
+             <div className={`prose ${proseClass} prose-lg mx-auto font-light leading-loose ${textColorClass}/80`}>
+               {article.content}
+             </div>
 
              {!isContactPage && (
                <div className="mt-12 flex justify-center">
@@ -76,7 +77,6 @@ const JournalDetail: React.FC<JournalDetailProps> = ({ article, onBack, onNaviga
                  </button>
                </div>
              )}
-
           </div>
        </div>
     </div>

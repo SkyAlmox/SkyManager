@@ -52,23 +52,38 @@ const DEFAULT_CATEGORIES: GalleryCategory[] = [
 ];
 
 const ProductGallery: React.FC<ProductGalleryProps> = ({ categories = DEFAULT_CATEGORIES }) => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [currentCategory, setCurrentCategory] = useState<GalleryCategory | null>(null);
+  const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const [zoom, setZoom] = useState(1);
 
-  const handleImageClick = (img: string) => {
-    setSelectedImage(img);
+  const handleImageClick = (cat: GalleryCategory, idx: number) => {
+    setCurrentCategory(cat);
+    setCurrentIndex(idx);
     setZoom(1);
     document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
-    setSelectedImage(null);
+    setCurrentCategory(null);
+    setCurrentIndex(null);
     setZoom(1);
     document.body.style.overflow = 'unset';
   };
 
   const toggleZoom = () => {
     setZoom(prev => (prev === 1 ? 2 : 1));
+  };
+
+  const showNext = () => {
+    if (currentCategory && currentIndex !== null) {
+      setCurrentIndex((currentIndex + 1) % currentCategory.images.length);
+    }
+  };
+
+  const showPrev = () => {
+    if (currentCategory && currentIndex !== null) {
+      setCurrentIndex((currentIndex - 1 + currentCategory.images.length) % currentCategory.images.length);
+    }
   };
 
   return (
@@ -87,7 +102,7 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ categories = DEFAULT_CA
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="aspect-square overflow-hidden bg-brand-dark/5 cursor-pointer group relative"
-                onClick={() => handleImageClick(img)}
+                onClick={() => handleImageClick(cat, imgIdx)}
               >
                 <img
                   src={img}
@@ -104,10 +119,10 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ categories = DEFAULT_CA
         </div>
       ))}
 
-      {/* Modal rendered via Portal */}
+      {/* Modal com setas de navegação */}
       {typeof document !== 'undefined' && createPortal(
         <AnimatePresence>
-          {selectedImage && (
+          {currentCategory && currentIndex !== null && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -119,10 +134,10 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ categories = DEFAULT_CA
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
-                // className="relative w-full max-w-[66.66vw] max-h-[90vh] overflow-hidden bg-brand-bg flex items-center justify-center"
-                className="relative w-full max-w-[66.66vw] max-h-[90vh] overflow-hidden bg-transparent flex items-center justify-center"
+                className="relative w-full max-w-[66.66vw] max-h-[90vh] overflow-hidden bg-brand-bg flex items-center justify-center"
                 onClick={(e) => e.stopPropagation()}
               >
+                {/* Botão fechar */}
                 <button
                   className="absolute top-4 right-4 z-[110] bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
                   onClick={closeModal}
@@ -130,6 +145,21 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ categories = DEFAULT_CA
                   <X size={24} />
                 </button>
 
+                {/* Setas de navegação */}
+                <button
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-white p-2 rounded-full bg-black/50 hover:bg-black/70"
+                  onClick={showPrev}
+                >
+                  ←
+                </button>
+                <button
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-white p-2 rounded-full bg-black/50 hover:bg-black/70"
+                  onClick={showNext}
+                >
+                  →
+                </button>
+
+                {/* Controles de zoom */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-[110] flex gap-4 bg-black/50 p-2 rounded-full backdrop-blur-sm">
                   <button
                     className="text-white p-1 hover:text-brand-hover transition-colors"
@@ -148,9 +178,10 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ categories = DEFAULT_CA
                   </button>
                 </div>
 
+                {/* Imagem atual */}
                 <div className="w-full h-full overflow-auto flex items-center justify-center p-4">
                   <motion.img
-                    src={selectedImage}
+                    src={currentCategory.images[currentIndex]}
                     alt="Gallery Preview"
                     animate={{ scale: zoom }}
                     transition={{ type: 'spring', stiffness: 300, damping: 30 }}

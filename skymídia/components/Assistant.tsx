@@ -1,3 +1,8 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+*/
+
 import React, { useState, useRef, useEffect } from 'react';
 import { ChatMessage } from '../types';
 import { sendMessageToGemini } from '../services/geminiService';
@@ -28,7 +33,7 @@ const Assistant: React.FC = () => {
     try {
       const history = messages.map(m => ({ role: m.role, text: m.text }));
       const responseText = await sendMessageToGemini(history, userMsg.text);
-
+      
       const aiMsg: ChatMessage = { role: 'model', text: responseText, timestamp: Date.now() };
       setMessages(prev => [...prev, aiMsg]);
     } catch (error) {
@@ -66,10 +71,10 @@ const Assistant: React.FC = () => {
           <div className="flex-1 overflow-y-auto p-6 space-y-8 bg-brand-bg" ref={scrollRef}>
             {messages.map((msg, idx) => (
               <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div
+                <div 
                   className={`max-w-[85%] p-5 text-sm leading-relaxed ${
-                    msg.role === 'user'
-                      ? 'bg-brand-hover text-brand-bg'
+                    msg.role === 'user' 
+                      ? 'bg-brand-hover text-brand-bg' 
                       : 'bg-white/5 border border-brand-hover/10 text-brand-text shadow-sm'
                   }`}
                 >
@@ -91,15 +96,15 @@ const Assistant: React.FC = () => {
           {/* Input Area */}
           <div className="p-5 bg-brand-bg border-t border-brand-hover/20">
             <div className="flex gap-2 relative">
-              <input
-                type="text"
+              <input 
+                type="text" 
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyPress}
-                placeholder="Como podemos ajudar?"
+                placeholder="Como podemos ajudar?" 
                 className="flex-1 bg-white/5 border border-brand-hover/20 focus:border-brand-hover px-4 py-3 text-sm outline-none transition-colors placeholder-brand-text/30 text-brand-text"
               />
-              <button
+              <button 
                 onClick={handleSend}
                 disabled={!inputValue.trim() || isThinking}
                 className="bg-brand-hover text-brand-bg px-4 hover:bg-brand-hover/80 transition-colors disabled:opacity-50"
@@ -113,7 +118,7 @@ const Assistant: React.FC = () => {
         </div>
       )}
 
-      <button
+      <button 
         onClick={() => setIsOpen(!isOpen)}
         className="bg-brand-hover text-brand-bg w-14 h-14 flex items-center justify-center rounded-full shadow-xl hover:scale-105 transition-all duration-500 z-50"
       >

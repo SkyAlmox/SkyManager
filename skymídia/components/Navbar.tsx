@@ -26,6 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
     onNavClick(e, targetId);
   };
 
+  // Determine text color based on state
   const textColorClass = (scrolled || mobileMenuOpen) ? 'text-brand-text' : 'text-brand-text';
 
   return (
@@ -49,13 +50,24 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
             <img
               src="/logo.png"
               alt={BRAND_NAME}
-              className={`h-12 md:h-16 w-auto transition-all duration-500 ${scrolled || mobileMenuOpen ? 'brightness-0' : 'brightness-100'}`}
+              className="h-12 md:h-16 w-auto transition-all duration-500"
             />
           </a>
 
           {/* Center Links - Desktop */}
-          <div className={`hidden md:flex items-center gap-12 text-sm font-medium tracking-widest uppercase transition-colors duration-500 ${textColorClass}`}>
-            <a href="#about" onClick={(e) => handleLinkClick(e, 'about')} className="hover:text-brand-hover transition-colors whitespace-nowrap">Identidade Visual</a>
+          <div className={`hidden md:flex items-center gap-10 text-sm font-medium tracking-widest uppercase transition-colors duration-500 ${textColorClass}`}>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                onNavClick(e, '');
+              }}
+              className="hover:text-brand-hover transition-colors whitespace-nowrap"
+            >
+              Home
+            </a>
+            {/* <a href="#about" onClick={(e) => handleLinkClick(e, 'about')} className="hover:text-brand-hover transition-colors whitespace-nowrap">Identidade Visual</a> */}
 
             {/* Dropdown Produtos */}
             <div
@@ -74,7 +86,13 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
               {/* Dropdown Content */}
               <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 ${dropdownOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
                 <div className="bg-brand-bg border border-brand-hover shadow-xl py-6 min-w-[280px] rounded-sm">
-                  {JOURNAL_ARTICLES.filter(a => a.id !== 7).map((article) => (
+                  {JOURNAL_ARTICLES
+                  .filter(a => a.id !== 7)
+                  .sort((a, b) => {
+                    const order = [3, 2, 5, 4, 6, 1];
+                    return order.indexOf(a.id) - order.indexOf(b.id);
+                  })
+                  .map((article) => (
                     <a
                       key={article.id}
                       href="#journal"
@@ -83,9 +101,17 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
                         setDropdownOpen(false);
                         onArticleClick(article);
                       }}
-                      className="block px-8 py-3 text-[11px] tracking-[0.15em] text-brand-text/80 hover:text-brand-hover hover:bg-white/5 transition-colors"
+                      className="flex items-center gap-3 px-8 py-3 text-[11px] tracking-[0.15em] text-brand-text/80 hover:text-brand-hover hover:bg-white/5 transition-colors"
                     >
-                      {article.title}
+                      {article.icon && (
+                        <img
+                          src={article.icon}
+                          alt=""
+                          className="h-6 w-auto object-contain"
+                          referrerPolicy="no-referrer"
+                        />
+                      )}
+                      <span>{article.title}</span>
                     </a>
                   ))}
                 </div>
@@ -109,7 +135,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
           <div className={`flex items-center gap-6 z-50 relative transition-colors duration-500 ${textColorClass}`}>
             <div className="flex items-center gap-5">
               <a
-                href="https://www.instagram.com/skymidiabh/"
+                href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-60 transition-opacity"
@@ -152,6 +178,18 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
           mobileMenuOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-10 pointer-events-none'
       }`}>
           <div className="flex flex-col items-center space-y-8 text-xl font-serif font-medium text-brand-text w-full px-8">
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                onNavClick(e, '');
+              }}
+              className="hover:text-brand-hover transition-colors"
+            >
+              Home
+            </a>
             <a href="#about" onClick={(e) => handleLinkClick(e, 'about')} className="hover:text-brand-hover transition-colors">Identidade Visual</a>
 
             <div className="flex flex-col items-center w-full">
@@ -164,7 +202,13 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
 
               {dropdownOpen && (
                 <div className="flex flex-col items-center space-y-4 mb-4 animate-fade-in">
-                  {JOURNAL_ARTICLES.filter(a => a.id !== 7).map((article) => (
+                  {JOURNAL_ARTICLES
+                  .filter(a => a.id !== 7)
+                  .sort((a, b) => {
+                    const order = [3, 2, 5, 4, 6, 1];
+                    return order.indexOf(a.id) - order.indexOf(b.id);
+                  })
+                  .map((article) => (
                     <a
                       key={article.id}
                       href="#journal"
@@ -174,9 +218,9 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
                         setDropdownOpen(false);
                         onArticleClick(article);
                       }}
-                      className="text-sm font-sans uppercase tracking-widest text-brand-text/70 hover:text-brand-hover"
+                      className="flex flex-col items-center gap-2 text-sm font-sans uppercase tracking-widest text-brand-text/70 hover:text-brand-hover"
                     >
-                      {article.title}
+                      <span>{article.title}</span>
                     </a>
                   ))}
                 </div>
@@ -198,7 +242,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
 
             <div className="flex items-center gap-8 mt-8">
               <a
-                href="https://www.instagram.com/skymidiabh/"
+                href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-60 transition-opacity"

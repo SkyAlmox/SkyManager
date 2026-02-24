@@ -1,3 +1,8 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+*/
+
 import React from 'react';
 
 export interface Product {
@@ -11,7 +16,6 @@ export interface Product {
   imageUrl: string;
   gallery?: string[];
   features: string[];
-  titleImageUrl?: string;
 }
 
 export interface JournalArticle {
@@ -20,8 +24,8 @@ export interface JournalArticle {
   date: string;
   excerpt: string;
   image: string;
-  content: React.ReactNode;
-  titleImageUrl?: string;
+  icon?: string;
+  content: React.ReactNode; // Allowing JSX for rich formatting/poems
 }
 
 export interface ChatMessage {
@@ -37,7 +41,7 @@ export enum LoadingState {
   SUCCESS = 'SUCCESS'
 }
 
-export type ViewState =
+export type ViewState = 
   | { type: 'home' }
   | { type: 'product', product: Product }
   | { type: 'journal', article: JournalArticle }

@@ -1,3 +1,10 @@
+
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+*/
+
+
 import React from 'react';
 import { Product } from '../types';
 
@@ -14,7 +21,7 @@ const Checkout: React.FC<CheckoutProps> = ({ items, onBack }) => {
   return (
     <div className="min-h-screen pt-24 pb-24 px-6 bg-brand-bg animate-fade-in-up">
       <div className="max-w-6xl mx-auto">
-        <button
+        <button 
           onClick={onBack}
           className="group flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-brand-text/60 hover:text-brand-hover transition-colors mb-12"
         >
@@ -25,12 +32,12 @@ const Checkout: React.FC<CheckoutProps> = ({ items, onBack }) => {
         </button>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-
+          
           {/* Left Column: Form */}
           <div>
             <h1 className="text-3xl font-serif text-brand-text mb-4">Orçamento</h1>
             <p className="text-sm text-brand-text/60 mb-12">Entre em contato para um orçamento personalizado.</p>
-
+            
             <div className="space-y-12">
               {/* Section 1: Contact */}
               <div>
@@ -53,7 +60,7 @@ const Checkout: React.FC<CheckoutProps> = ({ items, onBack }) => {
               </div>
 
               <div>
-                <button
+                <button 
                     className="w-full py-5 bg-brand-hover text-brand-bg uppercase tracking-widest text-sm font-medium hover:bg-brand-hover/80 transition-colors"
                 >
                     Enviar Solicitação
@@ -65,7 +72,7 @@ const Checkout: React.FC<CheckoutProps> = ({ items, onBack }) => {
           {/* Right Column: Summary */}
           <div className="lg:pl-12 lg:border-l border-brand-hover/20">
             <h2 className="text-xl font-serif text-brand-text mb-8">Itens Selecionados</h2>
-
+            
             <div className="space-y-6 mb-8">
                {items.map((item, idx) => (
                  <div key={idx} className="flex gap-4">

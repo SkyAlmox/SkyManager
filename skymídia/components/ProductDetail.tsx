@@ -45,18 +45,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack, onAddToC
           {/* Right: Details */}
           <div className="flex flex-col justify-center max-w-xl bg-[#F5F5F5] p-8 md:p-12 rounded-sm border border-brand-hover/10 shadow-sm">
              <span className="text-sm font-medium text-brand-dark/60 uppercase tracking-widest mb-2">{product.category}</span>
-             {/* <h1 className="text-4xl md:text-5xl font-serif text-brand-dark mb-6">{product.name}</h1> */}
-             <h1 className="text-4xl md:text-5xl font-serif text-brand-dark mb-6">
-                {product.titleImageUrl ? (
-                  <img
-                    src={product.titleImageUrl}
-                    alt={product.name}
-                    className="h-16 object-contain mx-auto"
-                  />
-                ) : (
-                  product.name
-                )}
-              </h1>
+             <h1 className="text-4xl md:text-5xl font-serif text-brand-dark mb-6">{product.name}</h1>
 
              <p className="text-brand-dark/80 leading-relaxed font-light text-lg mb-8">
                {product.longDescription || product.description}
