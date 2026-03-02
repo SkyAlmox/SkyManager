@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #727377;
+  --color-brand-hover: #15F0DB;
+  --color-brand-text: #E6E7E9;
+  --color-brand-dark: #1E1E1E;
+  
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Poppins", serif;
+  --font-mono: "Poppins", monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-brand-bg text-brand-text font-sans;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .card-effect {
+    @apply bg-brand-dark/5 rounded-sm border border-brand-hover/5 transition-all duration-500;
+  }
+  
+  .card-effect-hover {
+    @apply hover:border-brand-hover/20 hover:bg-brand-dark/10;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  @keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 1s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+  }
+}
