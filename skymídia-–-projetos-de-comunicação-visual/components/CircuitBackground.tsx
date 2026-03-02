@@ -8,40 +8,43 @@ const CircuitBackground: React.FC = () => {
   const leds = Array.from({ length: numLeds });
 
   return (
-    <div className="fixed top-24 right-0 w-1/4 h-1/2 pointer-events-none z-[100] opacity-100 overflow-hidden">
-      <svg
-        viewBox="0 0 1548 2126"
-        className="w-full h-full"
-        preserveAspectRatio="xMaxYMin meet"
-      >
-        <path
-          d={pathData}
-          fill="none"
-          stroke="#15F0DB"
-          strokeWidth="4"
-          strokeOpacity="0.5"
-        />
-        
-        {leds.map((_, i) => (
-          <motion.circle
-            key={i}
-            r="12"
-            fill="#15F0DB"
-            initial={{ offsetDistance: "0%" }}
-            animate={{ offsetDistance: "100%" }}
-            transition={{
-              duration: 15,
-              repeat: Infinity,
-              ease: "linear",
-              delay: (i * 15) / numLeds,
-            }}
-            style={{
-              offsetPath: `path('${pathData}')`,
-              filter: 'blur(1px) drop-shadow(0 0 15px #15F0DB)',
-            }}
+    <div className="absolute top-0 right-0 w-full h-full pointer-events-none z-[100] overflow-hidden">
+      <div className="absolute top-24 right-0 w-1/3 sm:w-1/4 md:w-1/5 h-full">
+        <svg
+          viewBox="0 0 1548 2126"
+          className="w-full h-full"
+          preserveAspectRatio="xMaxYMin meet"
+        >
+          <path
+            d={pathData}
+            fill="none"
+            stroke="#15F0DB"
+            strokeWidth="4"
+            strokeOpacity="0.3"
           />
-        ))}
-      </svg>
+          
+          {leds.map((_, i) => (
+            <motion.circle
+              key={i}
+              r="12"
+              fill="#15F0DB"
+              initial={{ offsetDistance: "0%" }}
+              animate={{ offsetDistance: "100%" }}
+              transition={{
+                duration: 15,
+                repeat: Infinity,
+                ease: "linear",
+                delay: (i * 15) / numLeds,
+              }}
+              style={{
+                offsetPath: `path('${pathData}')`,
+                filter: 'blur(1px) drop-shadow(0 0 15px #15F0DB)',
+                willChange: 'transform, opacity',
+              }}
+            />
+          ))}
+        </svg>
+      </div>
     </div>
   );
 };

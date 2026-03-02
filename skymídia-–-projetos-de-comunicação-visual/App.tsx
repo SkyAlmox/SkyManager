@@ -62,7 +62,7 @@ function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="min-h-screen bg-brand-bg font-sans text-brand-text selection:bg-brand-hover selection:text-brand-bg overflow-x-hidden"
+            className="min-h-screen bg-brand-bg font-sans text-brand-text selection:bg-brand-hover selection:text-brand-bg overflow-x-hidden relative"
           >
             <Navbar 
                 onNavClick={handleNavClick} 
